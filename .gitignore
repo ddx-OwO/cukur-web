@@ -4,9 +4,9 @@
 webpack.test.js
 
 # compiled output
-/dist
-/public
-/public_old
+/dist/*
+/public/*
+/public_old/*
 /tmp
 
 # dependencies

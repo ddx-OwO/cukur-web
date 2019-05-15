@@ -16,7 +16,7 @@ module.exports = {
     filename: 'assets/js/[name].[contenthash].js',
     chunkFilename: 'assets/js/[name].[contenthash].js',
     sourceMapFilename: "assets/js/[name].[contenthash].map",
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'dist'),
     publicPath: '/'
   },
   devtool: 'eval',
