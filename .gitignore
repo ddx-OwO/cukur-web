@@ -1,0 +1,40 @@
+
+# config
+/src/config.js
+webpack.test.js
+
+# compiled output
+/dist
+/public
+/public_old
+/tmp
+
+# dependencies
+/node_modules/
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/.phpintel
+/coverage
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+/src/config.js
