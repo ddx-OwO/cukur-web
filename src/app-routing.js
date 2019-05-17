@@ -22,6 +22,11 @@ export default function AppRouting(host, useHash, hash) {
           component.appendComponent(app.componentRoot, app.renderAbout());
           router.updatePageLinks();
         });
+        app.getFooterComponent().then(FooterComponent => {
+          let app = new FooterComponent.default;
+          component.appendComponent(app.componentRoot, app.render());
+          router.updatePageLinks();
+        });
 
         router.updatePageLinks();
       });
