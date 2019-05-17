@@ -12,8 +12,12 @@ export default function AppRouting(host, useHash, hash) {
       .then(HomeComponent => {
         let app = new HomeComponent.default;
 
-        app.render();
-        app.appendContentComponent().then(ContentComponent => {
+        component.appendToRoot(app.render());
+        app.getNavComponent().then(NavComponent => {
+          let app = new NavComponent.default;
+          component.appendComponent(app.componentRoot, app.render());
+        });
+        app.getContentComponent().then(ContentComponent => {
           let app = new ContentComponent.default;
           component.appendComponent(app.componentRoot, app.renderAbout());
           router.updatePageLinks();
@@ -33,22 +37,30 @@ export default function AppRouting(host, useHash, hash) {
 
   router.on(() => {
     import(/* webpackChunkName: 'home.component' */ './components/home/home.component')
-    .then(HomeComponent => {
-      let app = new HomeComponent.default;
+      .then(HomeComponent => {
+        let app = new HomeComponent.default;
 
-      app.render();
-      app.appendContentComponent().then(ContentComponent => {
-        let app = new ContentComponent.default;
-        component.appendComponent(app.componentRoot, app.render());
+        component.appendToRoot(app.render());
+        app.getNavComponent().then(NavComponent => {
+          let app = new NavComponent.default;
+          component.appendComponent(app.componentRoot, app.render());
+        });
+        app.getContentComponent().then(ContentComponent => {
+          let app = new ContentComponent.default;
+          component.appendComponent(app.componentRoot, app.render());
+          router.updatePageLinks();
+        });
+        app.getFooterComponent().then(FooterComponent => {
+          let app = new FooterComponent.default;
+          component.appendComponent(app.componentRoot, app.render());
+          router.updatePageLinks();
+        });
+
         router.updatePageLinks();
       });
-
-      router.updatePageLinks();
-    });
   }).resolve();
 
   router.notFound(() => {
-    // Redirect to base path
     component.clearRootElement('app-root');
     router.navigate('/not-found');
   });

@@ -10,6 +10,12 @@
     padding-bottom: .75rem;
     min-height: 70px;
   }
+
+  .btn-mitra {
+    .text:hover {
+      color: $white !important;
+    }
+  }
 }
 
 .navbar-light {
@@ -25,12 +31,6 @@
   }
 }
 
-.btn-mitra {
-  .text:hover {
-    color: $white !important;
-  }
-}
-
 .navbar-brand {
   padding: .5rem 0;
   font-weight: bold;
@@ -39,9 +39,9 @@
 @include media-breakpoint-down(md) {
   .navbar {
     padding: 0rem 1rem;
-  }
 
-  .btn-mitra {
-    width: 120px;
+    .btn-mitra {
+      width: 120px;
+    }
   }
 }

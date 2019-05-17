@@ -20,16 +20,19 @@ module.exports = merge(baseConfig, {
   optimization: {
     runtimeChunk: false,
     splitChunks: {
-      minSize: 30000,
+      chunks: 'all',
+      minSize: 0,
       maxSize: 50000,
       minChunks: 1,
       cacheGroups: {
         default: false,
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-          reuseExistingChunk: true
+          reuseExistingChunk: true,
+          name(module) {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            return `vendor.${packageName.replace('@', '')}`;
+          }
         }
       }
     },

@@ -1,0 +1,13 @@
+.footer {
+
+}
+
+.footer-find-us {
+  .icon {
+    font-size: 2rem;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

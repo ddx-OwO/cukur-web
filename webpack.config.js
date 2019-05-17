@@ -8,8 +8,6 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
-    styles: './src/scss/styles.scss',
-    custom: './src/scss/custom.scss',
     app: './src/app.js'
   },
   output: {

@@ -6,26 +6,22 @@ import './home.component.scss';
 export default class HomeComponent extends ComponentModule {
   constructor() {
     super();
-    this.componentRoot = 'app-root';
+    this.componentRoot = 'app-home';
   }
 
   render() {
-    let navComponent = this.appendNavComponent();
-    super.appendComponent(this.componentRoot, HomeComponentView);
-
-    navComponent.then(NavComponent => {
-      let app = new NavComponent.default;
-      super.appendComponent(app.componentRoot, app.render());
-    });
-
     return HomeComponentView;
   }
 
-  appendNavComponent() {
+  getNavComponent() {
     return import(/* webpackChunkName: 'home-nav.component' */ './nav/nav.component');
   }
 
-  appendContentComponent() {
+  getContentComponent() {
     return import(/* webpackChunkName: 'home-content.component' */ './content/main.component');
+  }
+
+  getFooterComponent() {
+    return import(/* webpackChunkName: 'home-footer.component' */ './footer/footer.component');
   }
 }
