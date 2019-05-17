@@ -1,13 +1,25 @@
-.footer {
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+@import "../../../scss/variables";
 
+.footer {
+  .footer-content {
+    margin-bottom: 1rem;
+  }
 }
 
 .footer-find-us {
+  text-align: right;
+
   .icon {
     font-size: 2rem;
 
     &:not(:last-child) {
       margin-right: 1rem;
     }
+  }
+
+  @include media-breakpoint-down(md) {
+    text-align: left;
   }
 }
